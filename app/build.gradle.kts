@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.example.familia"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.familia"
         minSdk = 28
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.sdp.android)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
