@@ -87,6 +87,7 @@
         app:layout_constraintEnd_toEndOf="@id/guideline14">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_below_5l"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/_5sdp"
@@ -98,6 +99,7 @@
                 android:paddingBottom="@dimen/_8sdp"
                 android:layout_height="wrap_content">
                 <RadioButton
+                    android:id="@+id/radio_below_5l"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
@@ -112,6 +114,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_5_to_10l"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -124,6 +127,7 @@
                 android:paddingBottom="@dimen/_8sdp"
                 android:layout_height="wrap_content">
                 <RadioButton
+                    android:id="@+id/radio_5_to_10l"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
@@ -138,6 +142,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_10_to_15l"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -150,6 +155,7 @@
                 android:paddingBottom="@dimen/_8sdp"
                 android:layout_height="wrap_content">
                 <RadioButton
+                    android:id="@+id/radio_10_to_15l"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
@@ -160,10 +166,11 @@
                     android:letterSpacing="0.06"
                     android:textSize="@dimen/_15sdp"
                     android:fontFamily="@font/inter_medium"
-                    android:text="11 Lakhs - 15 Lakhs" />
+                    android:text="10 Lakhs - 15 Lakhs" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_above_15l"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -176,6 +183,7 @@
                 android:paddingBottom="@dimen/_8sdp"
                 android:layout_height="wrap_content">
                 <RadioButton
+                    android:id="@+id/radio_above_15l"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
@@ -186,7 +194,7 @@
                     android:letterSpacing="0.06"
                     android:textSize="@dimen/_15sdp"
                     android:fontFamily="@font/inter_medium"
-                    android:text="Other's" />
+                    android:text="Above 15 Lakhs" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

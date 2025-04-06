@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "132897441069",
+    "project_id": "familia-4d457",
+    "storage_bucket": "familia-4d457.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132897441069:android:01a447b0994f054e6a3fa4",
+        "android_client_info": {
+          "package_name": "com.example.familia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq6jQyTkV14GrV42moZM9_uqRNnzmVTiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

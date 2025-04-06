@@ -1,66 +1,93 @@
 package com.example.familia.Onboarding;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.example.familia.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Onboarding_Sixth_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Onboarding_Sixth_Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private CardView cardYes, cardNo;
+    private Button nextButton;
+    private String selectedHealthIssue = null;
+    private JSONObject userData;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Onboarding_Sixth_Fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Onboarding_Sixth_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Onboarding_Sixth_Fragment newInstance(String param1, String param2) {
-        Onboarding_Sixth_Fragment fragment = new Onboarding_Sixth_Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_onboarding__sixth_, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        cardYes = view.findViewById(R.id.cardYes);
+        cardNo = view.findViewById(R.id.cardNo);
+        nextButton = view.findViewById(R.id.buttonNext);
+
+        // Retrieve the existing bundle
+        Bundle bundle = getArguments();
+        if (bundle != null && bundle.containsKey("userData")) {
+            try {
+                userData = new JSONObject(bundle.getString("userData"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+                userData = new JSONObject();
+            }
+        } else {
+            userData = new JSONObject();
+        }
+
+        cardYes.setOnClickListener(v -> {
+            selectedHealthIssue = "Yes";
+            highlightSelected(cardYes, cardNo);
+        });
+
+        cardNo.setOnClickListener(v -> {
+            selectedHealthIssue = "No";
+            highlightSelected(cardNo, cardYes);
+        });
+
+        nextButton.setOnClickListener(v -> {
+            if (selectedHealthIssue != null) {
+                try {
+                    userData.put("healthIssue", selectedHealthIssue);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                // Pass updated bundle to the next fragment
+
+                bundle.putString("userData", userData.toString());
+
+                replaceChildFragment(new Onboarding_Seventh_Fragment(), bundle);
+            }
+        });
+    }
+
+    private void highlightSelected(CardView selected, CardView other) {
+        selected.setCardBackgroundColor(getResources().getColor(R.color.selected_card));
+        other.setCardBackgroundColor(getResources().getColor(R.color.default_card));
+    }
+    private void replaceChildFragment(Fragment fragment, Bundle bundle) {
+        if (bundle != null) {
+            fragment.setArguments(bundle); // Attach the bundle to the new fragment
+        }
+        getChildFragmentManager().beginTransaction()
+                .replace(R.id.onBoarding_container_fragment, fragment)
+                .commit();
+    }
+
 }

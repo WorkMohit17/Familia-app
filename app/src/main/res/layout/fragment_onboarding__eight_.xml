@@ -87,6 +87,7 @@
         app:layout_constraintEnd_toEndOf="@id/guideline14">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextAddress"
             android:hint="Address"
             app:boxCornerRadiusBottomStart="@dimen/_15sdp"
             app:boxCornerRadiusBottomEnd="@dimen/_15sdp"
@@ -105,6 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextPincode"
                 android:hint="Pincode"
                 app:boxCornerRadiusBottomStart="@dimen/_15sdp"
                 app:boxCornerRadiusBottomEnd="@dimen/_15sdp"
@@ -122,6 +124,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextTown"
                 android:hint="Town"
                 app:boxCornerRadiusBottomStart="@dimen/_15sdp"
                 app:boxCornerRadiusBottomEnd="@dimen/_15sdp"
@@ -142,6 +145,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextCity"
                 android:hint="City"
                 android:maxLines="1"
                 android:inputType="textPostalAddress"
@@ -159,6 +163,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextState"
                 android:hint="State"
                 android:layout_weight="1"
                 app:boxCornerRadiusBottomStart="@dimen/_15sdp"
@@ -176,6 +181,7 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextCountry"
             android:layout_marginTop="@dimen/_10sdp"
             android:hint="Country"
             app:boxCornerRadiusBottomStart="@dimen/_15sdp"
@@ -194,6 +200,7 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/btnProceed"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintBottom_toBottomOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="@id/guideline13"

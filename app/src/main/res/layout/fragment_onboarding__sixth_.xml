@@ -87,6 +87,7 @@
         app:layout_constraintEnd_toEndOf="@id/guideline14">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardYes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/_5sdp"
@@ -112,6 +113,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardNo"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,6 +143,7 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/buttonNext"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintBottom_toBottomOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="@id/guideline13"
